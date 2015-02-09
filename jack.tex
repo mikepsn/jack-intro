@@ -243,6 +243,9 @@
 \end{frame} 
 
 \begin{frame}{BDI Execution Concepts in JACK} 
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{execution} 
+    \end{center} 
 \end{frame} 
 
 \begin{frame}{BDI Dynamics (1)}
@@ -471,21 +474,68 @@
 \end{frame}
 
 \begin{frame}{Example Plan -- \texttt{TakeOff.plan}}
+    \showcode{takeoffplan.java} 
 \end{frame}
 
 \begin{frame}{Reasoning Method Statements} 
+    \begin{itemize}
+        \item \texttt{@wait\_for(parameters)} 
+        \item \texttt{ @action(parameters) <body> }
+        \item \texttt{ @maintain(parameters) } 
+        \item \texttt{ @post(parameters) }
+        \item \texttt{ @reply(parameters) }
+        \item \texttt{ @send(parameters) }
+        \item \texttt{ @subtask(parameters) }
+        \item \texttt{ @sleep(parameters) }
+        \item \texttt{ @achieve(parameters) } 
+        \item \texttt{ @insist(parameters) } 
+        \item \texttt{ @test(parameters) } 
+        \item \texttt{ @determine(parameters) } 
+        \item \texttt{ @parallel(parameters) <body> } 
+    \end{itemize}
 \end{frame} 
 
 \begin{frame}{Beliefset Declarations -- \texttt{.bel}}
+    \begin{itemize}
+        \item Beliefsets are used in JACK to maintain an agent's 
+              beliefs about the world.
+        \item An agent's beliefset can be stored as either an 
+              OpenWorld or a ClosedWorld class. 
+        \item The beliefset represents these beliefs in a first order, 
+              tuple-based relational model 
+    \end{itemize} 
+    \begin{block}{Closed World Beliefs}
+        True or False
+    \end{block} 
+    \begin{block}{Open World Beliefs}
+        True, False or Unknown
+    \end{block} 
 \end{frame} 
 
 \begin{frame}{Example Beliefset -- \texttt{BookData.bel}}
+    \showcode{bookbelief.java} 
 \end{frame} 
 
-\begin{frame}{Illustrating a Relation}
-\end{frame}
-
 \begin{frame}{Jack Capabilities}
+    \begin{itemize}
+        \item A way to group related events, plans, beliefs, views etc.
+        \item A way to make modular agent code.
+        \item Groups related agent abilities together.
+        \item Elements can belong to more than one capability.
+        \item Like an ‘index’ of elements
+            \begin{itemize}
+                \item not a partitioning
+                \item same element mentioned in many capabilities
+            \end{itemize} 
+        \item Module of elements that together implement a function (ability)
+        \item Allows posting event in one capability, handling in another
+        \item Allows data being hosted by one capability, used by another
+        \item May be enabled / disabled dynamically
+            \begin{itemize}
+                \item if disabled, then its plans are not applicable
+                \item no effect on data
+            \end{itemize} 
+    \end{itemize} 
 \end{frame} 
 
 \begin{frame}{Resources}
